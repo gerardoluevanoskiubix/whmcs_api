@@ -3,7 +3,11 @@
 namespace WhcmsApi\Whcms;
 
 class whcms_api{
-    public function getclient(){
+    public static function getclient(){
+        return $this->getclientAsync();
+    }
+
+    public static function getclientAsync(){
         return 'holi';
     }
 }
