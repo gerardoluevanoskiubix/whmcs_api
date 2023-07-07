@@ -1,6 +1,6 @@
 <?php
 
-namespace whcms_api\whcms;
+namespace WhcmsApi;
 
 class WhcmsApi{
     public static function getclient(){
@@ -11,5 +11,3 @@ class WhcmsApi{
         return 'holi';
     }
 }
-
-?>
