@@ -1,5 +1,5 @@
 {
-    "name": "whcms_api/test",
+    "name": "whcms_api/whcms",
     "description": "Library for use WHMCS api",
     "type": "library",
     "license": "MIT",
