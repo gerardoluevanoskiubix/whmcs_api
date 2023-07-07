@@ -7,7 +7,7 @@
         "psr-4": {
             "WhcmsApi\\": "src/"
         },
-        "files":["config/whcms.php"]
+        "files":["config/config.php"]
     },
     "authors": [
         {
