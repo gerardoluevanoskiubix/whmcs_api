@@ -1,6 +1,6 @@
 <?php
 
-namespace WhcmsApi\Whcms;
+namespace whcms_api\whcms;
 
 class whcms_api{
     public static function getclient(){
