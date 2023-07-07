@@ -10,7 +10,7 @@ class WhcmsApi{
                 $keysToCheck = ['url', 'identifier', 'secret', 'url_path'];
                 $containsAllKeys = true;
                 foreach ($keysToCheck as $key) {
-                    if (!array_key_exists($key, $arr['sandbox'])) {
+                    if (!array_key_exists($key, $config)) {
                         $containsAllKeys = false;
                         break;
                     }
