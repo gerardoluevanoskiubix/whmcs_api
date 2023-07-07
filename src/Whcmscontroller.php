@@ -2,7 +2,7 @@
 
 namespace whcms_api\whcms;
 
-class whcms_api{
+class WhcmsApi{
     public static function getclient(){
         return $this->getclientAsync();
     }
