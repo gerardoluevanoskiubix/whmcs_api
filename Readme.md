@@ -20,7 +20,7 @@ The configuration file **whcms.php** is located in the **config** folder. Follow
 <?php
 /**
  * WHCMS Setting & API Credentials
- * Created by Gerardo Luevanos <gerardo.luevanos01@gmail.com>.
+ * Created by Gerardo Luevanos <gerardo.luevanos@kiubix.com>.
  */
 return [
     'mode'    => env('WHCMS_MODE', 'sandbox'), // Can only be 'sandbox' Or 'live'. If empty or invalid, 'live' will be used.
@@ -43,7 +43,7 @@ return [
 ```
 <a name="support"></a>
 ## Support
-*gerardo.luevanos01@gmail.com
+*gerardo.luevanos@kiubix.com
 
 <a name="support"></a>
 ## Examples
@@ -87,7 +87,7 @@ return [
     $user = [
         'firstname' => 'Gerardo',
         'lastname' => 'Luevanos',
-        'email' => 'gerardo.luevanos01@gamil.com',
+        'email' => 'gerardo.luevanos@kiubix.com',
         'address1' => 'Aguascalientes',
         'city' => 'Aguascalientes',
         'state' => 'Aguascalientes',
@@ -112,7 +112,7 @@ return [
     $mode = config('whcms.mode');
     //Obtain config in this mode
     $config = config("whcms.{$mode}");
-    $email = 'gerardo.luevanos01@gmail.com';
+    $email = 'gerardo.luevanos@kiubix.com';
     //send to get callback
     $response = $whcms->getclient($config,$email);
     dd($response);
@@ -126,7 +126,7 @@ return [
     $mode = config('whcms.mode');
     //Obtain config in this mode
     $config = config("whcms.{$mode}");
-    $email = 'gerardo.luevanos01@gmail.com';
+    $email = 'gerardo.luevanos@kiubix.com';
     //send to get callback
     $response = $whcms->recoverypasssword($config,$email);
     dd($response);
