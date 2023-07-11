@@ -1,5 +1,5 @@
 {
-    "name": "whcms_api/whcms",
+    "name": "kiubix/whcms_api",
     "description": "Library for use WHMCS api",
     "type": "library",
     "license": "MIT",
