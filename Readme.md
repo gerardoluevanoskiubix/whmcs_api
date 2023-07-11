@@ -5,7 +5,7 @@
 
 ```php
 // Import the class namespaces first, before using it directly
-use whcms_api\whcms\src\WhcmsApi;
+use kiubix\whcms_api\src\WhcmsApi;
 
 $whcms = new \WhcmsApi\WhcmsApi();
 
