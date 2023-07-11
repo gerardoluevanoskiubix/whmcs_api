@@ -4,30 +4,6 @@ namespace WhcmsApi;
 
 class WhcmsApi{
 
-    public function validateconfigbeforecontinue(array $config){
-        try{
-            if(is_array($config)){
-                $keysToCheck = ['url', 'identifier', 'secret', 'url_path'];
-                $containsAllKeys = true;
-                foreach ($keysToCheck as $key) {
-                    if (!array_key_exists($key, $config)) {
-                        $containsAllKeys = false;
-                        break;
-                    }
-                }
-                if ($containsAllKeys) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }else{
-                return false;
-            } 
-        }catch(Exception $e){
-            return $e;
-        }
-    }
-
     public function validatelogin(array $config,$response_in_array = true,array $user){
        $continue = $this->validateconfigbeforecontinue($config);
        if($continue && is_array($user)){
@@ -62,6 +38,44 @@ class WhcmsApi{
         }
     }
 
+    public function getclient(array $config,$response_in_array = true,$email){
+        $continue = $this->validateconfigbeforecontinue($config);
+        if($continue && $email){
+             return $this->getclientAsync($config,$response_in_array,$email);
+        }else{
+         if($response_in_array){
+             $res = array(
+                 "status" => false,
+                 'message' => "The config user is not valid"
+             );
+             return $res;
+         }else{
+             return false;
+         }
+        }  
+    }
+
+    public function resetpassword(array $config,$response_in_array = true,$email){
+        $continue = $this->validateconfigbeforecontinue($config);
+        if($continue && $email){
+             return $this->recoverypassswordAsync($config,$response_in_array,$email);
+        }else{
+         if($response_in_array){
+             $res = array(
+                 "status" => false,
+                 'message' => "The config user is not valid"
+             );
+             return $res;
+         }else{
+             return false;
+         }
+        } 
+    }
+
+    public function addorder(array $config,$response_in_array = true,array $order){
+
+    }
+
     public function validateloginAsync($config,$response_in_array,$user){
         $query = http_build_query(
                     array(
@@ -73,7 +87,7 @@ class WhcmsApi{
                         'responsetype' => 'json',
                     )
                 );
-        return $this->sendrequestandmethod($config,$query);
+        return $this->sendrequestandmethod($config,$response_in_array,$query);
     }
 
     public function createclientAsyc($config,$response_in_array,$user){
@@ -99,6 +113,33 @@ class WhcmsApi{
                     )
                 );
         return $this->sendrequestandmethod($config,$query);     
+    }
+
+    public function getclientAsync($config,$response_in_array,$email){
+        $query = http_build_query(
+                    array(
+                        'action' => 'GetClients',
+                        'username' => $config['identifier'],
+                        'password' => $config['secret'],
+                        'search' => $email,
+                        'responsetype' => 'json',
+                    )
+                );
+
+        return $this->sendrequestandmethod($config,$query);   
+    }
+
+    public function recoverypassswordAsync($config,$response_in_array,$email){
+        $query = http_build_query(
+                    array(
+                        'action' => 'ResetPassword',
+                        'username' => $config['identifier'],
+                        'password' => $config['secret'],
+                        'email' => $email,
+                        'responsetype' => 'json',
+                    )
+                );
+        return $this->sendrequestandmethod($config,$query);
     }
 
     public function sendrequestandmethod($config,$response_in_array,$query){
@@ -138,6 +179,30 @@ class WhcmsApi{
             }else{
                 return false;
             }
+        }
+    }
+
+    public function validateconfigbeforecontinue(array $config){
+        try{
+            if(is_array($config)){
+                $keysToCheck = ['url', 'identifier', 'secret', 'url_path'];
+                $containsAllKeys = true;
+                foreach ($keysToCheck as $key) {
+                    if (!array_key_exists($key, $config)) {
+                        $containsAllKeys = false;
+                        break;
+                    }
+                }
+                if ($containsAllKeys) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }else{
+                return false;
+            } 
+        }catch(Exception $e){
+            return $e;
         }
     }
 }

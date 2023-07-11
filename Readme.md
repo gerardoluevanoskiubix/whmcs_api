@@ -53,8 +53,8 @@ return [
     $config = config("whcms.{$mode}");
     //Create array with information of user to validate login
     $user = array(
-        "email" => 'gerardo.luevanos@kiubix.com',
-        "password" => 'toker99100.'
+        "email" => '********',
+        "password" => '****'
     );
     //Send data to callback
     //Send config,response_in_json is default false, change true for false to return bool val, include user config
