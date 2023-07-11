@@ -173,7 +173,7 @@ class WhcmsApi{
                         'password2' => $user['password2'],
                         'responsetype' => 'json',
                         'noemail' => $user['noemail'],
-                        'groupid' => $config['brand_id'],
+                        'groupid' => $user['brand_id'],
                     )
                 );
         return $this->sendrequestandmethod($config,$response_in_array,$query);     
@@ -221,7 +221,7 @@ class WhcmsApi{
                         'responsetype' => 'json',
                         'noemail' => $order['noemail'],
                         'noinvoiceemail' => $order['noinvoiceemail'],
-                        'brandid' => $config['brand_id'],
+                        'brandid' => $order['brand_id'],
                     )
                 );
         return $this->sendrequestandmethod($config,$response_in_array,$query);
