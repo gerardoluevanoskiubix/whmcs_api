@@ -2,7 +2,7 @@
 /**
  * WHCMS Setting & API Credentials
  * Created by Gerardo Luevanos <gerardo.luevanos01@gmail.com>.
- */
+ *
 return [
     'mode'    => env('WHCMS_MODE', 'sandbox'), // Can only be 'sandbox' Or 'live'. If empty or invalid, 'live' will be used.
     'sandbox' => [
@@ -21,3 +21,5 @@ return [
         'brand_id'            => env('WHCMS_LIVE_BRAND_ID',''),
     ],
 ];
+
+*/
